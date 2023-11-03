@@ -1,0 +1,6 @@
+import '../models/audioeditor_item_model.dart';import 'package:equatable/equatable.dart';import 'package:flutter/material.dart';import '/core/app_export.dart';import '../models/audioeditor_item_model.dart';import 'package:basri_s_application10/presentation/audio_editor_screen/models/audio_editor_model.dart';part 'audio_editor_event.dart';part 'audio_editor_state.dart';class AudioEditorBloc extends Bloc<AudioEditorEvent, AudioEditorState> {AudioEditorBloc(AudioEditorState initialState) : super(initialState) { on<AudioEditorInitialEvent>(_onInitialize); on<AudioeditorItemEvent>(_audioeditorItem); }
+
+_onInitialize(AudioEditorInitialEvent event, Emitter<AudioEditorState> emit, ) async  { emit(state.copyWith(audioEditorModelObj: state.audioEditorModelObj?.copyWith(audioeditorItemList: fillAudioeditorItemList()))); } 
+_audioeditorItem(AudioeditorItemEvent event, Emitter<AudioEditorState> emit, ) { List<AudioeditorItemModel> newList = List<AudioeditorItemModel>.from(state.audioEditorModelObj!.audioeditorItemList); newList[event.index] = newList[event.index].copyWith(isSelectedSwitch: event.isSelectedSwitch); emit(state.copyWith(audioEditorModelObj: state.audioEditorModelObj?.copyWith(audioeditorItemList: newList))); } 
+List<AudioeditorItemModel> fillAudioeditorItemList() { return List.generate(3, (index) => AudioeditorItemModel()); } 
+ }

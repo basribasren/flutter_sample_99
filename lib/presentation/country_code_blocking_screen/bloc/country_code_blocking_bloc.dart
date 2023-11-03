@@ -1,0 +1,6 @@
+import 'package:equatable/equatable.dart';import 'package:flutter/material.dart';import '/core/app_export.dart';import 'package:basri_s_application10/presentation/country_code_blocking_screen/models/country_code_blocking_model.dart';part 'country_code_blocking_event.dart';part 'country_code_blocking_state.dart';class CountryCodeBlockingBloc extends Bloc<CountryCodeBlockingEvent, CountryCodeBlockingState> {CountryCodeBlockingBloc(CountryCodeBlockingState initialState) : super(initialState) { on<CountryCodeBlockingInitialEvent>(_onInitialize); on<ChangeDropDownEvent>(_changeDropDown); }
+
+_onInitialize(CountryCodeBlockingInitialEvent event, Emitter<CountryCodeBlockingState> emit, ) async  { emit(state.copyWith(countryCodeBlockingModelObj: state.countryCodeBlockingModelObj?.copyWith(dropdownItemList: fillDropdownItemList()))); } 
+_changeDropDown(ChangeDropDownEvent event, Emitter<CountryCodeBlockingState> emit, ) { emit(state.copyWith(selectedDropDownValue: event.value)); } 
+List<SelectionPopupModel> fillDropdownItemList() { return [SelectionPopupModel(id: 1, title: "Item One", isSelected: true), SelectionPopupModel(id: 2, title: "Item Two"), SelectionPopupModel(id: 3, title: "Item Three")]; } 
+ }

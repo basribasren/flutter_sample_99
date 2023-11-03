@@ -1,0 +1,4 @@
+import 'package:equatable/equatable.dart';import 'package:flutter/material.dart';import '/core/app_export.dart';import 'package:basri_s_application10/presentation/content_delivery_network_cdn_on_server_bottomsheet/models/content_delivery_network_cdn_on_server_model.dart';part 'content_delivery_network_cdn_on_server_event.dart';part 'content_delivery_network_cdn_on_server_state.dart';class ContentDeliveryNetworkCdnOnServerBloc extends Bloc<ContentDeliveryNetworkCdnOnServerEvent, ContentDeliveryNetworkCdnOnServerState> {ContentDeliveryNetworkCdnOnServerBloc(ContentDeliveryNetworkCdnOnServerState initialState) : super(initialState) { on<ContentDeliveryNetworkCdnOnServerInitialEvent>(_onInitialize); }
+
+_onInitialize(ContentDeliveryNetworkCdnOnServerInitialEvent event, Emitter<ContentDeliveryNetworkCdnOnServerState> emit, ) async  {  } 
+ }

@@ -1,0 +1,3 @@
+class PaginationItemModel {String? id = "";
+
+ }

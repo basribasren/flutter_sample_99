@@ -1,0 +1,6 @@
+import 'package:equatable/equatable.dart';import 'package:flutter/material.dart';import '/core/app_export.dart';import '../models/listrunningads_item_model.dart';import '../models/listtype_item_model.dart';import 'package:basri_s_application10/presentation/google_adsense_integration_screen/models/google_adsense_integration_model.dart';part 'google_adsense_integration_event.dart';part 'google_adsense_integration_state.dart';class GoogleAdsenseIntegrationBloc extends Bloc<GoogleAdsenseIntegrationEvent, GoogleAdsenseIntegrationState> {GoogleAdsenseIntegrationBloc(GoogleAdsenseIntegrationState initialState) : super(initialState) { on<GoogleAdsenseIntegrationInitialEvent>(_onInitialize); }
+
+_onInitialize(GoogleAdsenseIntegrationInitialEvent event, Emitter<GoogleAdsenseIntegrationState> emit, ) async  { emit(state.copyWith(googleAdsenseIntegrationModelObj: state.googleAdsenseIntegrationModelObj?.copyWith(listrunningadsItemList: fillListrunningadsItemList(), listtypeItemList: fillListtypeItemList()))); } 
+List<ListrunningadsItemModel> fillListrunningadsItemList() { return List.generate(3, (index) => ListrunningadsItemModel()); } 
+List<ListtypeItemModel> fillListtypeItemList() { return List.generate(4, (index) => ListtypeItemModel()); } 
+ }

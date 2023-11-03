@@ -1,0 +1,5 @@
+import 'package:equatable/equatable.dart';import 'package:flutter/material.dart';import '/core/app_export.dart';import '../models/listblogsuploaded_item_model.dart';import 'package:basri_s_application10/presentation/blog_posts_management_screen/models/blog_posts_management_model.dart';part 'blog_posts_management_event.dart';part 'blog_posts_management_state.dart';class BlogPostsManagementBloc extends Bloc<BlogPostsManagementEvent, BlogPostsManagementState> {BlogPostsManagementBloc(BlogPostsManagementState initialState) : super(initialState) { on<BlogPostsManagementInitialEvent>(_onInitialize); }
+
+_onInitialize(BlogPostsManagementInitialEvent event, Emitter<BlogPostsManagementState> emit, ) async  { emit(state.copyWith(blogPostsManagementModelObj: state.blogPostsManagementModelObj?.copyWith(listblogsuploadedItemList: fillListblogsuploadedItemList()))); } 
+List<ListblogsuploadedItemModel> fillListblogsuploadedItemList() { return List.generate(3, (index) => ListblogsuploadedItemModel()); } 
+ }

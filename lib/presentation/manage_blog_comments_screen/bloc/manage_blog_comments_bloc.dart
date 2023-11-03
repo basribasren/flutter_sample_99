@@ -1,0 +1,8 @@
+import 'package:equatable/equatable.dart';import 'package:flutter/material.dart';import '/core/app_export.dart';import '../models/listprofileimglarge1_item_model.dart';import 'package:basri_s_application10/presentation/manage_blog_comments_screen/models/manage_blog_comments_model.dart';part 'manage_blog_comments_event.dart';part 'manage_blog_comments_state.dart';class ManageBlogCommentsBloc extends Bloc<ManageBlogCommentsEvent, ManageBlogCommentsState> {ManageBlogCommentsBloc(ManageBlogCommentsState initialState) : super(initialState) { on<ManageBlogCommentsInitialEvent>(_onInitialize); on<ChangeSwitchEvent>(_changeSwitch); on<ChangeSwitch1Event>(_changeSwitch1); on<ChangeSwitch2Event>(_changeSwitch2); }
+
+_changeSwitch(ChangeSwitchEvent event, Emitter<ManageBlogCommentsState> emit, ) { emit(state.copyWith(isSelectedSwitch: event.value)); } 
+_changeSwitch1(ChangeSwitch1Event event, Emitter<ManageBlogCommentsState> emit, ) { emit(state.copyWith(isSelectedSwitch1: event.value)); } 
+_changeSwitch2(ChangeSwitch2Event event, Emitter<ManageBlogCommentsState> emit, ) { emit(state.copyWith(isSelectedSwitch2: event.value)); } 
+List<Listprofileimglarge1ItemModel> fillListprofileimglarge1ItemList() { return List.generate(2, (index) => Listprofileimglarge1ItemModel()); } 
+_onInitialize(ManageBlogCommentsInitialEvent event, Emitter<ManageBlogCommentsState> emit, ) async  { emit(state.copyWith(group9887Controller: TextEditingController(), isSelectedSwitch: false, isSelectedSwitch1: false, isSelectedSwitch2: false)); emit(state.copyWith(manageBlogCommentsModelObj: state.manageBlogCommentsModelObj?.copyWith(listprofileimglarge1ItemList: fillListprofileimglarge1ItemList()))); } 
+ }

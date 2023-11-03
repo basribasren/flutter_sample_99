@@ -1,0 +1,6 @@
+import '../models/disableads_item_model.dart';import 'package:equatable/equatable.dart';import 'package:flutter/material.dart';import '/core/app_export.dart';import '../models/disableads_item_model.dart';import 'package:basri_s_application10/presentation/disable_ads_screen/models/disable_ads_model.dart';part 'disable_ads_event.dart';part 'disable_ads_state.dart';class DisableAdsBloc extends Bloc<DisableAdsEvent, DisableAdsState> {DisableAdsBloc(DisableAdsState initialState) : super(initialState) { on<DisableAdsInitialEvent>(_onInitialize); on<DisableadsItemEvent>(_disableadsItem); }
+
+_onInitialize(DisableAdsInitialEvent event, Emitter<DisableAdsState> emit, ) async  { emit(state.copyWith(disableAdsModelObj: state.disableAdsModelObj?.copyWith(disableadsItemList: fillDisableadsItemList()))); } 
+_disableadsItem(DisableadsItemEvent event, Emitter<DisableAdsState> emit, ) { List<DisableadsItemModel> newList = List<DisableadsItemModel>.from(state.disableAdsModelObj!.disableadsItemList); newList[event.index] = newList[event.index].copyWith(isSelectedSwitch: event.isSelectedSwitch); emit(state.copyWith(disableAdsModelObj: state.disableAdsModelObj?.copyWith(disableadsItemList: newList))); } 
+List<DisableadsItemModel> fillDisableadsItemList() { return List.generate(3, (index) => DisableadsItemModel()); } 
+ }

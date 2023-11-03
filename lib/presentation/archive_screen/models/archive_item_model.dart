@@ -1,0 +1,3 @@
+class ArchiveItemModel {String? id = "";
+
+ }
