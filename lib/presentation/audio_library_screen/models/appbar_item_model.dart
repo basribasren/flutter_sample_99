@@ -1,0 +1,3 @@
+class AppbarItemModel {String? id = "";
+
+ }
